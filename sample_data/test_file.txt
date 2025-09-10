@@ -1,0 +1,10 @@
+Hello team,
+Here are some dummy details for testing:
+
+Aadhaar: 1234 5678 9012
+PAN: ABCDE1234F
+Email: user.demo@example.com
+Phone: 9876543210
+Password: Pass@1234
+
+(These are FAKE values for demo.)
