@@ -197,7 +197,7 @@ with tab2:
                     
                     for f in findings:
                         st.markdown(f"""
-                        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin: 0.5rem 0; border-radius: 4px;">
+                        <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 1rem; margin: 0.5rem 0; border-radius: 4px; color: #721c24;">
                             <strong>🔍 {f}</strong>
                         </div>
                         """, unsafe_allow_html=True)
