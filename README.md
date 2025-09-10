@@ -2,6 +2,14 @@
 
 A comprehensive security scanning tool for detecting cloud misconfigurations and sensitive data leaks in files. Built with Python and Streamlit for easy deployment and use.
 
+## 🌐 **Live Demo**
+**🚀 Try it now:** [https://cloud-security-scanner.streamlit.app/](https://cloud-security-scanner.streamlit.app/)
+
+## 👨‍💻 **Developer**
+**ASHUTOSH KUMAR**  
+Bachelor's in Computer Science, IIT Patna (3rd Year)  
+GitHub: [@ashutosh8021](https://github.com/ashutosh8021)
+
 ![Cloud Security Analyzer](docs/arch.png)
 
 ## ✨ Features
