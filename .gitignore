@@ -3,6 +3,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Deleted development files - don't restore
+DEPLOYMENT_CHECKLIST.md
+DEPLOYMENT_GUIDE.md
+IMPROVEMENT_PLAN.md
+PHASE2_ROADMAP.md
+deploy.bat
+deploy.sh
+requirements-enhanced.txt
+improvements/
+enhanced_demo.py
+Dockerfile
+docker-compose.yml
+
 # C extensions
 *.so
 

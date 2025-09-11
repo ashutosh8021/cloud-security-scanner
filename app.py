@@ -159,23 +159,6 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-    }
-    .risk-medium {
-        background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: bold;
-    }
-    .risk-low {
-        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-weight: bold;
-    }
-</style>
-""", unsafe_allow_html=True)
 
 # ---------------------------
 # Helper - Risk Badge
