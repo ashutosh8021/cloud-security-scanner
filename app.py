@@ -20,46 +20,145 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main-header {
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
         padding: 2rem;
-        border-radius: 10px;
+        border-radius: 15px;
         text-align: center;
         margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .main-header h1 {
         color: white;
         margin: 0;
         font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     .main-header p {
-        color: #f0f0f0;
+        color: #ecf0f1;
         margin: 0.5rem 0 0 0;
         font-size: 1.1rem;
+        opacity: 0.9;
     }
     .stTabs > div > div > div > div {
         font-weight: bold;
         font-size: 1.1rem;
+        color: #2c3e50;
     }
     .metric-card {
-        background: #f8f9fa;
-        padding: 1rem;
-        border-radius: 8px;
-        border-left: 4px solid #007bff;
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid #e3e6f0;
+        margin: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: all 0.3s ease;
+    }
+    .metric-card:hover {
+        box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        transform: translateY(-2px);
+    }
+    .metric-card h4 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .metric-card p {
+        color: #5a6c7d;
         margin: 0.5rem 0;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .metric-card code {
+        background: #f8f9fa;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        color: #e74c3c;
+        font-size: 0.9rem;
+        font-weight: 500;
     }
     .success-card {
-        background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
         color: white;
-        padding: 1rem;
-        border-radius: 8px;
+        padding: 1.5rem;
+        border-radius: 12px;
         margin: 1rem 0;
+        box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+    }
+    .success-card h4 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.3rem;
+    }
+    .success-card p {
+        margin: 0;
+        opacity: 0.95;
     }
     .risk-high {
-        background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+        background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
         color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
         font-weight: bold;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    }
+    .risk-medium {
+        background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+    }
+    .risk-low {
+        background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(39, 174, 96, 0.3);
+    }
+    .finding-card {
+        background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+        border-left: 5px solid #e53e3e;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 8px;
+        color: #2d3748;
+        box-shadow: 0 2px 6px rgba(229, 62, 62, 0.15);
+    }
+    .finding-card strong {
+        color: #c53030;
+        font-size: 1.05rem;
+    }
+    .info-card {
+        background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+        border-left: 5px solid #3182ce;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 8px;
+        color: #2d3748;
+        box-shadow: 0 2px 6px rgba(49, 130, 206, 0.15);
+    }
+    .recommendation-card {
+        background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+        border-left: 5px solid #38a169;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 8px;
+        color: #2d3748;
+        box-shadow: 0 2px 6px rgba(56, 161, 105, 0.15);
+    }
+</style>
+""", unsafe_allow_html=True)
     }
     .risk-medium {
         background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
@@ -163,7 +262,11 @@ with tab1:
                     """, unsafe_allow_html=True)
 
                 if result.get("notes"):
-                    st.warning("**🔍 Analysis Notes:** " + " • ".join(result["notes"]))
+                    st.markdown(f"""
+                    <div style="background: #e8f4fd; border-left: 4px solid #0066cc; padding: 1rem; margin: 1rem 0; border-radius: 4px; color: #004085;">
+                        <strong>🔍 Analysis Notes:</strong> {" • ".join(result["notes"])}
+                    </div>
+                    """, unsafe_allow_html=True)
 
                 with st.expander("📄 Detailed JSON Result"):
                     st.json(result)
@@ -184,7 +287,11 @@ with tab2:
     )
     
     if uploaded_file:
-        st.info(f"📁 **File Selected:** {uploaded_file.name} ({uploaded_file.size} bytes)")
+        st.markdown(f"""
+        <div class="info-card">
+            <strong>📁 File Selected:</strong> {uploaded_file.name} ({uploaded_file.size} bytes)
+        </div>
+        """, unsafe_allow_html=True)
         
         if st.button("📑 Analyze File", type="primary", use_container_width=True):
             with st.spinner("🔍 Analyzing file for sensitive data..."):
@@ -193,17 +300,29 @@ with tab2:
                 st.markdown("### 📄 File Scan Result")
                 
                 if findings:
-                    st.error(f"🚨 **{len(findings)} types of sensitive data found!**")
+                    st.markdown(f"""
+                    <div class="finding-card">
+                        <strong>🚨 {len(findings)} types of sensitive data found!</strong>
+                    </div>
+                    """, unsafe_allow_html=True)
                     
                     for f in findings:
                         st.markdown(f"""
-                        <div style="background: #f8d7da; border-left: 4px solid #dc3545; padding: 1rem; margin: 0.5rem 0; border-radius: 4px; color: #721c24;">
+                        <div class="finding-card">
                             <strong>🔍 {f}</strong>
                         </div>
                         """, unsafe_allow_html=True)
                     
-                    st.markdown("### � Recommendations")
-                    st.info("• Remove or encrypt sensitive personal data\n• Implement access controls\n• Consider data anonymization techniques")
+                    st.markdown("### 💡 Recommendations")
+                    st.markdown("""
+                    <div class="recommendation-card">
+                        <strong>🛡️ Security Actions:</strong><br>
+                        • Remove or encrypt sensitive personal data<br>
+                        • Implement proper access controls<br>
+                        • Consider data anonymization techniques<br>
+                        • Regular security audits and monitoring
+                    </div>
+                    """, unsafe_allow_html=True)
                     
                 else:
                     st.markdown("""
@@ -213,7 +332,12 @@ with tab2:
                     </div>
                     """, unsafe_allow_html=True)
     else:
-        st.info("👆 Please upload a file to begin analysis")
+        st.markdown("""
+        <div class="info-card">
+            <strong>👆 Please upload a file to begin analysis</strong><br>
+            Supported formats: TXT, PDF, DOCX
+        </div>
+        """, unsafe_allow_html=True)
 
 # ---------------------------
 # Tab 3 - Dashboard (sample demo)
